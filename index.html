@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="theme-color" content="#A90D26" />
+    <meta name="description" content="منيو فُرن أونلاين — اختار طلبك وأرسله مباشرة على واتساب." />
+    <meta name="robots" content="index, follow" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="فُرن — أكل طازة وطلب أسهل" />
+    <meta property="og:description" content="استكشف المنيو، أضف للسلة، وابعت طلبك في ثوانٍ." />
+    <meta property="og:image" content="assets/images/hero-1440.jpg" />
+    <title>فُرن | المنيو والطلب أونلاين</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='18' fill='%23a90d26'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-size='38' font-family='Arial' font-weight='700' fill='white'%3Eف%3C/text%3E%3C/svg%3E" />
+
+    <link rel="preload" as="image" href="assets/images/hero-720.avif" imagesrcset="assets/images/hero-720.avif 720w, assets/images/hero-1440.avif 1440w" imagesizes="(min-width: 64rem) 48vw, 100vw" type="image/avif" fetchpriority="high" />
+    <style>
+      :root{color-scheme:light;--color-primary:#a90d26;--color-bg:#fffaf3;--color-text:#241b18}*{box-sizing:border-box}html{background:var(--color-bg);scroll-behavior:smooth}body{margin:0;color:var(--color-text);background:var(--color-bg);font-family:"DIN Next Arabic","Geeza Pro",Tahoma,Arial,sans-serif}img{max-width:100%;display:block}button,input,textarea,select{font:inherit}.skip-link{position:fixed;inset-block-start:.5rem;inset-inline-start:.5rem;z-index:1000;transform:translateY(-150%)}.skip-link:focus{transform:none}
+    </style>
+    <link rel="stylesheet" href="css/styles.css" />
+    <script src="js/menu.js" defer></script>
+    <script src="js/app.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link button button--primary" href="#menu">تخطَّ إلى المنيو</a>
+
+    <header class="site-header" aria-label="رأس الصفحة">
+      <div class="container header__inner">
+        <a class="brand" href="#top" aria-label="فُرن — الصفحة الرئيسية">
+          <span class="brand__mark" aria-hidden="true">ف</span>
+          <span class="brand__text"><strong data-restaurant-name>فُرن</strong><small>طازة كل يوم</small></span>
+        </a>
+        <div class="header__actions">
+          <a class="header__phone" data-phone-link href="tel:+201024553480" aria-label="اتصل بالمطعم">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8.7 3.5 6.8 2.9a2 2 0 0 0-2.3.9L3.2 5.9c-1.5 2.5.7 7.5 4.7 11.5 4 4 9 6.2 11.5 4.7l2.1-1.3a2 2 0 0 0 .9-2.3l-.6-1.9a2 2 0 0 0-2-1.4l-2.4.2a2 2 0 0 0-1.5.9l-.5.8a13 13 0 0 1-4.6-3 13 13 0 0 1-3-4.6l.8-.5a2 2 0 0 0 .9-1.5l.2-2.4a2 2 0 0 0-1-1.6Z"/></svg>
+            <span>اتصل بنا</span>
+          </a>
+          <button class="icon-button" id="headerCartButton" type="button" aria-label="فتح السلة" aria-controls="cartDrawer">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><path d="M3 3h2l2.1 11.2a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L20 7H6M10 21a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Zm9 0a1.2 1.2 0 1 1-2.4 0 1.2 1.2 0 0 1 2.4 0Z"/></svg>
+            <span class="cart-count" data-cart-count hidden>0</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="heroTitle">
+        <div class="container hero__grid">
+          <div class="hero__content">
+            <div class="status-line">
+              <span class="open-status"><span class="status-dot" aria-hidden="true"></span><span data-open-status>مفتوح الآن</span></span>
+              <span class="status-divider" aria-hidden="true"></span>
+              <span data-hours>حتى 12 منتصف الليل</span>
+            </div>
+            <h1 id="heroTitle">أكل سخن، <span>وطلب على طول.</span></h1>
+            <p class="hero__lead" data-tagline>بيتزا بعجينة يومية، ساندوتشات سخنة، واختيارات معمولة عشان تتاكل حالًا.</p>
+            <div class="trust-row" aria-label="معلومات المطعم">
+              <span class="rating" aria-label="تقييم 4.8 من 5"><strong>4.8</strong><span aria-hidden="true">★</span><small>(340+ تقييم)</small></span>
+              <span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>جاهز خلال ~20 دقيقة</span>
+              <span><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg>توصيل واستلام</span>
+            </div>
+            <button class="button button--primary button--hero" id="orderNowButton" type="button">
+              شوف المنيو
+              <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+          <div class="hero__media">
+            <picture>
+              <source type="image/avif" srcset="assets/images/hero-720.avif 720w, assets/images/hero-1440.avif 1440w" sizes="(min-width: 64rem) 48vw, 100vw" />
+              <img src="assets/images/hero-1440.jpg" width="1440" height="2160" alt="بيتزا طازجة خارجة من الفرن على سفرة دافئة" fetchpriority="high" decoding="async" />
+            </picture>
+          </div>
+        </div>
+      </section>
+
+      <section class="menu-shell" id="menu" aria-labelledby="menuTitle">
+        <div class="container menu-heading">
+          <div><span class="eyebrow">المنيو</span><h2 id="menuTitle">اختار اللي على مزاجك</h2></div>
+          <p>كل صنف بيتحضّر بعد الطلب. الأسعار شاملة الضريبة.</p>
+        </div>
+
+        <div class="category-sticky" id="categorySticky">
+          <div class="container">
+            <nav class="category-tabs" id="categoryTabs" aria-label="أقسام المنيو"></nav>
+          </div>
+        </div>
+
+        <div class="container menu-tools" aria-label="البحث والتصفية">
+          <label class="search-box">
+            <span class="sr-only">ابحث في المنيو</span>
+            <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></svg>
+            <input id="searchInput" type="search" inputmode="search" placeholder="دوّر على بيتزا، برجر..." autocomplete="off" />
+            <button class="search-clear" id="clearSearch" type="button" aria-label="مسح البحث" hidden>×</button>
+          </label>
+          <div class="filter-pills" id="filterPills" aria-label="فلترة الأصناف">
+            <button class="filter-pill" type="button" data-filter="popular" aria-pressed="false">الأكثر طلبًا</button>
+          </div>
+        </div>
+
+        <div class="container ordering-layout">
+          <div class="menu-sections" id="menuSections" aria-live="polite"></div>
+          <aside class="cart-sidebar" id="cartSidebar" aria-label="سلة الطلب"></aside>
+        </div>
+      </section>
+
+      <section class="restaurant-info" aria-labelledby="infoTitle">
+        <div class="container info-grid">
+          <div class="info-copy"><span class="eyebrow eyebrow--light">إحنا قريبين منك</span><h2 id="infoTitle">سخن، سريع، ومن غير لف كتير.</h2><p>اطلب للاستلام أو التوصيل داخل دمياط الجديدة. هنراجع معاك التفاصيل على واتساب قبل تجهيز الطلب.</p></div>
+          <div class="info-cards">
+            <a data-map-link href="#" target="_blank" rel="noopener" class="info-card"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z"/><circle cx="12" cy="10" r="2.5"/></svg><span><small>العنوان</small><strong data-address>دمياط الجديدة، المنطقة المركزية</strong></span></a>
+            <a data-phone-link href="tel:+201024553480" class="info-card"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M8.7 3.5 6.8 2.9a2 2 0 0 0-2.3.9L3.2 5.9c-1.5 2.5.7 7.5 4.7 11.5 4 4 9 6.2 11.5 4.7l2.1-1.3a2 2 0 0 0 .9-2.3l-.6-1.9a2 2 0 0 0-2-1.4l-2.4.2a2 2 0 0 0-1.5.9l-.5.8a13 13 0 0 1-4.6-3 13 13 0 0 1-3-4.6l.8-.5a2 2 0 0 0 .9-1.5l.2-2.4a2 2 0 0 0-1-1.6Z"/></svg><span><small>اتصل بنا</small><strong data-phone-display>0100 000 0000</strong></span></a>
+            <div class="info-card"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M12 7v5l3 2M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg><span><small>مواعيدنا</small><strong data-hours-full>يوميًا، 12 ظ — 12 ص</strong></span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer"><div class="container footer__inner"><div class="brand brand--footer"><span class="brand__mark" aria-hidden="true">ف</span><span class="brand__text"><strong data-restaurant-name>فُرن</strong><small>ديمو منيو وطلب مباشر</small></span></div><p>الصور والأسماء والأسعار تجريبية، وجاهزة للاستبدال ببيانات مطعمك.</p></div></footer>
+
+    <button class="mobile-cart-bar" id="mobileCartBar" type="button" aria-controls="cartDrawer" hidden>
+      <span class="mobile-cart-bar__count" data-cart-count>0</span>
+      <span><small>عرض السلة</small><strong data-cart-total>0 ج.م</strong></span>
+      <svg aria-hidden="true" viewBox="0 0 24 24"><path d="m9 18 6-6-6-6"/></svg>
+    </button>
+
+    <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
+    <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartDrawerTitle" aria-hidden="true">
+      <div class="drawer__handle" aria-hidden="true"></div>
+      <div class="drawer__header"><div><span class="eyebrow">طلبك</span><h2 id="cartDrawerTitle">السلة</h2></div><button class="icon-button" id="closeCartButton" type="button" aria-label="إغلاق السلة">×</button></div>
+      <div class="drawer__body" id="cartDrawerContent"></div>
+    </aside>
+
+    <dialog class="item-dialog" id="itemDialog" aria-labelledby="itemDialogTitle">
+      <div class="dialog-sheet">
+        <div class="drawer__handle" aria-hidden="true"></div>
+        <button class="icon-button dialog-close" type="button" data-close-dialog aria-label="إغلاق التفاصيل">×</button>
+        <div id="itemDialogContent"></div>
+      </div>
+    </dialog>
+
+    <dialog class="checkout-dialog" id="checkoutDialog" aria-labelledby="checkoutTitle">
+      <div class="checkout-card">
+        <button class="icon-button dialog-close" type="button" data-close-checkout aria-label="إغلاق إتمام الطلب">×</button>
+        <span class="eyebrow">آخر خطوة</span>
+        <h2 id="checkoutTitle">هنبعتهولك في رسالة مرتبة</h2>
+        <p>المطعم هيراجع التوفر وميعاد الوصول معاك على واتساب قبل التجهيز.</p>
+        <form id="checkoutForm" novalidate>
+          <div class="order-type" role="radiogroup" aria-label="طريقة استلام الطلب">
+            <label><input type="radio" name="orderType" value="توصيل" checked /><span><strong>توصيل</strong><small>لحد باب البيت</small></span></label>
+            <label><input type="radio" name="orderType" value="استلام من المطعم" /><span><strong>استلام</strong><small>من فرع المطعم</small></span></label>
+          </div>
+          <div class="form-error" id="checkoutError" role="alert" aria-live="assertive" hidden></div>
+          <label class="field"><span>الاسم</span><input name="name" autocomplete="name" required placeholder="اسمك" /></label>
+          <label class="field"><span>رقم الموبايل</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="01xxxxxxxxx" /></label>
+          <div class="fulfillment-fields" id="deliveryFields">
+            <label class="field"><span>عنوان التوصيل</span><input name="address" autocomplete="street-address" required placeholder="المنطقة، الشارع، علامة مميزة" /></label>
+          </div>
+          <div class="fulfillment-fields pickup-fields" id="pickupFields" hidden>
+            <div class="pickup-location"><small>الاستلام من</small><strong data-pickup-address>دمياط الجديدة، المنطقة المركزية</strong></div>
+            <label class="field"><span>ميعاد الاستلام</span><select name="pickupTime"><option value="في أقرب وقت">في أقرب وقت (~20 دقيقة)</option><option value="بعد 30 دقيقة">بعد 30 دقيقة</option><option value="بعد 45 دقيقة">بعد 45 دقيقة</option><option value="بعد ساعة">بعد ساعة</option></select></label>
+          </div>
+          <div class="checkout-summary" id="checkoutSummary"></div>
+          <button class="button button--primary button--full" type="submit"><svg aria-hidden="true" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.5 7.5L3 21l2-5.2A8.5 8.5 0 1 1 21 11.5Z"/><path d="M8.5 10.5c1 2 2 3 4 4"/></svg>إرسال الطلب على واتساب</button>
+          <p class="form-note">لن يتم إرسال شيء تلقائيًا؛ ستراجع الرسالة بنفسك أولًا.</p>
+        </form>
+      </div>
+    </dialog>
+
+    <dialog class="confirmation-dialog" id="confirmationDialog" aria-labelledby="confirmationTitle">
+      <div class="confirmation-card"><div class="confirmation-icon" aria-hidden="true">✓</div><h2 id="confirmationTitle">طلبك جاهز للإرسال</h2><p>فتحنا واتساب بالملخص كامل. اضغط “إرسال” هناك عشان يوصل للمطعم.</p><button class="button button--primary" type="button" data-close-confirmation>تمام</button></div>
+    </dialog>
+
+    <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+    <noscript><div class="noscript">شغّل JavaScript لعرض المنيو والسلة. ما زال بإمكانك الاتصال بنا على 0100 000 0000.</div></noscript>
+  </body>
+</html>
