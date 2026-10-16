@@ -124,7 +124,7 @@
     </button>
 
     <div class="drawer-backdrop" id="drawerBackdrop" hidden></div>
-    <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartDrawerTitle" aria-hidden="true">
+    <aside class="cart-drawer" id="cartDrawer" aria-labelledby="cartDrawerTitle" aria-hidden="true" inert>
       <div class="drawer__handle" aria-hidden="true"></div>
       <div class="drawer__header"><div><span class="eyebrow">طلبك</span><h2 id="cartDrawerTitle">السلة</h2></div><button class="icon-button" id="closeCartButton" type="button" aria-label="إغلاق السلة">×</button></div>
       <div class="drawer__body" id="cartDrawerContent"></div>
@@ -151,7 +151,7 @@
           </div>
           <div class="form-error" id="checkoutError" role="alert" aria-live="assertive" hidden></div>
           <label class="field"><span>الاسم</span><input name="name" autocomplete="name" required placeholder="اسمك" /></label>
-          <label class="field"><span>رقم الموبايل</span><input name="phone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="01xxxxxxxxx" /></label>
+          <label class="field"><span>رقم الموبايل</span><input name="phone" type="tel" inputmode="numeric" autocomplete="tel" required maxlength="11" pattern="(?:01[0125][0-9]{8}|٠١[٠١٢٥][٠-٩]{8})" aria-describedby="phoneHint" placeholder="01xxxxxxxxx" /><small class="field-hint" id="phoneHint">رقم مصري من 11 رقم</small></label>
           <div class="fulfillment-fields" id="deliveryFields">
             <label class="field"><span>عنوان التوصيل</span><input name="address" autocomplete="street-address" required placeholder="المنطقة، الشارع، علامة مميزة" /></label>
           </div>

@@ -15,7 +15,8 @@
     activeCategory: categories[0].id,
     detailItem: null,
     detailQty: 1,
-    toastTimer: null
+    toastTimer: null,
+    cartTrigger: null
   };
   let sectionObserver;
 
@@ -231,6 +232,8 @@
   }
 
   function openCart() {
+    state.cartTrigger = document.activeElement;
+    els.cartDrawer.removeAttribute("inert");
     els.cartDrawer.setAttribute("aria-hidden", "false");
     els.drawerBackdrop.hidden = false;
     document.body.classList.add("is-locked");
@@ -242,9 +245,12 @@
   }
 
   function closeCart() {
+    const returnFocus = state.cartTrigger;
+    if (els.cartDrawer.contains(document.activeElement) && returnFocus instanceof HTMLElement) returnFocus.focus();
     els.cartDrawer.classList.remove("is-open");
     els.drawerBackdrop.classList.remove("is-visible");
     els.cartDrawer.setAttribute("aria-hidden", "true");
+    els.cartDrawer.setAttribute("inert", "");
     document.body.classList.remove("is-locked");
     setTimeout(() => { els.drawerBackdrop.hidden = true; }, 190);
   }
@@ -278,9 +284,15 @@
       field.setAttribute("aria-invalid", String(missing));
       if (missing) invalid = true;
     });
+    const phone = normalizePhone(form.elements.phone.value);
+    const invalidPhone = Boolean(phone) && !/^01[0125][0-9]{8}$/.test(phone);
+    if (invalidPhone) {
+      form.elements.phone.setAttribute("aria-invalid", "true");
+      invalid = true;
+    }
     if (invalid) {
-      const firstInvalid = required.find((field) => !field.value.trim());
-      showCheckoutError("كمّل البيانات المطلوبة عشان نجهّز رسالة الطلب.");
+      const firstInvalid = required.find((field) => field.getAttribute("aria-invalid") === "true");
+      showCheckoutError(invalidPhone && firstInvalid === form.elements.phone ? "اكتب رقم موبايل مصري صحيح من 11 رقم يبدأ بـ 010 أو 011 أو 012 أو 015." : "كمّل البيانات المطلوبة عشان نجهّز رسالة الطلب.");
       firstInvalid?.scrollIntoView({ block: "center", behavior: reduceMotion() ? "auto" : "smooth" });
       firstInvalid?.focus({ preventScroll: true });
       return;
@@ -297,9 +309,13 @@
     const addressLine = orderType === "توصيل" ? `\nالعنوان: ${formData.get("address")}` : "";
     const pickupLine = orderType === "استلام من المطعم" ? `\nميعاد الاستلام: ${formData.get("pickupTime")}\nالفرع: ${restaurant.address}` : "";
     const fulfillmentFeeLine = orderType === "توصيل" ? `التوصيل: ${delivery ? money(delivery) : "مجاني"}` : "الاستلام من الفرع: بدون رسوم";
-    const message = `طلب جديد من موقع ${restaurant.name}\n\n${lines}\n\nالإجمالي الفرعي: ${money(subtotalValue)}\n${fulfillmentFeeLine}\nالإجمالي: ${money(subtotalValue + delivery)}\n\nطريقة الاستلام: ${orderType}\nالاسم: ${formData.get("name")}\nالموبايل: ${formData.get("phone")}${addressLine}${pickupLine}\n\nبرجاء تأكيد الطلب والوقت المتوقع.`;
+    const message = `طلب جديد من موقع ${restaurant.name}\n\n${lines}\n\nالإجمالي الفرعي: ${money(subtotalValue)}\n${fulfillmentFeeLine}\nالإجمالي: ${money(subtotalValue + delivery)}\n\nطريقة الاستلام: ${orderType}\nالاسم: ${formData.get("name")}\nالموبايل: ${phone}${addressLine}${pickupLine}\n\nبرجاء تأكيد الطلب والوقت المتوقع.`;
     const whatsappUrl = `https://wa.me/${restaurant.whatsapp}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, "_blank", "noopener");
+    state.cart = [];
+    renderCart();
+    form.reset();
+    syncFulfillmentFields("توصيل");
     els.checkoutDialog.close();
     showDialog(els.confirmationDialog);
   }
@@ -445,6 +461,7 @@
   function money(value) { return `${number(value)} ${restaurant.currency}`; }
   function number(value) { return new Intl.NumberFormat("ar-EG", { maximumFractionDigits: 0 }).format(value); }
   function normalize(value) { return value.toLowerCase().replace(/[أإآ]/g, "ا").replace(/ة/g, "ه").replace(/ى/g, "ي").trim(); }
+  function normalizePhone(value) { return value.trim().replace(/[٠-٩]/g, (digit) => String("٠١٢٣٤٥٦٧٨٩".indexOf(digit))); }
   function reduceMotion() { return window.matchMedia("(prefers-reduced-motion: reduce)").matches; }
   function saveCart() { try { localStorage.setItem("forn-cart-v2", JSON.stringify(state.cart)); } catch (_) {} }
   function loadCart() { try { return JSON.parse(localStorage.getItem("forn-cart-v2")) || []; } catch (_) { return []; } }
